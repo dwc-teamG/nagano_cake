@@ -1,0 +1,2 @@
+module Pubric::CustomersHelper
+end

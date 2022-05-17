@@ -1,0 +1,2 @@
+module Pubric::ItemsHelper
+end

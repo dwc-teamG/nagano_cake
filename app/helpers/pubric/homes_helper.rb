@@ -1,0 +1,2 @@
+module Pubric::HomesHelper
+end
