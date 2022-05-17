@@ -1,0 +1,13 @@
+<h2>商品詳細</h2>
+  <%= image_tag @item.get_profile_image(100,100) %>
+  <label for="inputName">商品名</label>
+  <%= @item.name %>
+  <label for="item_introduction">商品説明</label>
+  <%= @item.introduction %>
+  <label for="selectGenre">ジャンル</label>
+  <%= @item.genre %>
+  <label for="inputPrice">税込価格（税抜価格）</label>
+  <%= @item.add_tax_price.to_s(:delimited) %> 円
+  <div class="form-group">
+    <%= f.submit '編集する', class: 'btn btn-secondary' %>
+  </div>
