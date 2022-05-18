@@ -1,24 +1,35 @@
-<h2>商品編集</h2>
-<%= form_with model: @item do |f| %>
+<h3>商品編集</h3>
+<%= form_with model: @item, method: :patch do |f| %>
   <div class="form-group">
-    <label for="inputImage">商品画像</label>
+    <%= f.label :商品画像 %>
     <%= f.file_field :item_image, accept: "image/*" %>
   </div>
   <div class="form-group">
-    <label for="inputName">商品名</label>
-    <%= f.text_field :name, class: 'form-control textfield' %>
+    <%= f.label :商品名 %>
+    <%= f.text_field :name, placeholder: "商品名", class: 'form-control textfield' %>
   </div>
   <div class="form-group">
-    <label for="item_introduction">商品説明</label>
-    <%= f.text_area :introduction, class: 'form-control textarea' %>
+    <%= f.label :商品説明 %>
+    <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: 'form-control textarea' %>
   </div>
   <div class="form-group">
-    <label for="selectGenre">ジャンル</label>
-    <%= f.select :genre, {'ケーキ': 1, 'プリン': 2, '焼き菓子': 3, 'キャンディ': 4}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+    <%= f.label :ジャンル %>
+    <%= f.select :genre_id, {'ケーキ': 1, 'プリン': 2, '焼き菓子': 3, 'キャンディ': 4}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
   </div>
   <div class="form-group">
-    <label for="inputPrice">税抜価格</label>
-    <%= f.text_field :price, class: 'form-control textfield' %> 円
+    <%= f.label :税抜価格 %>
+    <%= f.text_field :price, placeholder: "1000", class: 'form-control textfield' %> 円
+  </div>
+  <div class="form-group">
+    <%= f.label :販売ステータス %>
+    <span>
+      <%= f.radio_button :sale_status, :true %>
+      <%= f.label :sale_status, "販売中", {value: :true, style: "display: inline-block;"} %>
+    </span>
+    <span>
+      <%= f.radio_button :sale_status, :false %>
+      <%= f.label :sale_status, "販売停止中", {value: :false, style: "display: inline-block;"} %>
+    </span>
   </div>
   <div class="form-group">
     <%= f.submit '変更を保存', class: 'btn btn-secondary' %>
