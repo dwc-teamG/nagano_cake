@@ -6,12 +6,12 @@
   <div>
     <h5>名前</h5>
       <div class="field">
-        <%= f.label :性 %>
+        <%= f.label "(性)" %>
         <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
       </div>
 
       <div class="field">
-        <%= f.label :名 %>
+        <%= f.label "(名)" %>
         <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
       </div>
   </div>
@@ -19,12 +19,12 @@
   <div>
     <h5>フリガナ</h5>
       <div class="field">
-        <%= f.label :セイ %>
+        <%= f.label "(セイ)" %>
         <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
       </div>
 
       <div class="field">
-        <%= f.label :メイ %>
+        <%= f.label "(メイ)" %>
         <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
       </div>
   </div>
@@ -66,13 +66,17 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label "パスワード(確認用)" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録", class: "btn btn-lg btn-success" %>
   </div>
 <% end %>
 
-<%= render "public/shared/links" %>
+<span>
+  既に登録済みの方<br>
+  <%= render "public/shared/links" %>
+  からログインしてください。
+</span>
