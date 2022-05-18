@@ -6,7 +6,7 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -23,7 +23,7 @@
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
             <li class="nav-item">
-              <%= link_to 'マイページ', customer_path(current_customer), class: 'nav-link text-dark' %>
+              <%= link_to 'マイページ', my_page_customers_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %>
