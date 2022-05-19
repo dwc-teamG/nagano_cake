@@ -12,6 +12,7 @@
        </thead>
        <tbody>
          <% @customers.each do |customer| %>
+         <tr>
          　<td><%= customer.id %></td>
          　<td><%= customer.last_name %><%= customer.first_name %></td>
          　<td><%= customer.email %></td>
@@ -20,6 +21,7 @@
          　<% else %>
          　<td class="text-success">有効</td>
          　<% end %>
+         </tr>
          <% end %>
        </tbody>
     </table>
