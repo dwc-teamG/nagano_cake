@@ -6,6 +6,11 @@ class Item < ApplicationRecord
   has_many :orders, through: :order_details
   has_one_attached :item_image
 
+  validates :name, presence: true
+  validates :introduction, presence: true
+  validates :price, presence: true
+
+  #消費税計算用のメソッド
   def add_tax_price
     (self.price * 1.10).round
   end
