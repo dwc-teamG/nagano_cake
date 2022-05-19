@@ -36,13 +36,13 @@
             </li>
             <% elsif admin_signed_in? %>
             <li class="nav-item">
-              <%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %>
+              <%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "注文履歴一覧", orders_path, class: 'nav-link text-dark' %>
+              <%= link_to "注文履歴一覧", admin_orders_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %>

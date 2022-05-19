@@ -12,12 +12,17 @@
        </thead>
        <tbody>
          <% @customers.each do |customer| %>
-         <td><%= customer.id %></td>
-         <td><%= customer.last_name %><%= customer.first_name %></td>
-         <td><%= customer.email %></td>
-         <td></td>
+         　<td><%= customer.id %></td>
+         　<td><%= customer.last_name %><%= customer.first_name %></td>
+         　<td><%= customer.email %></td>
+         　<% if customer.deleted_flag == true %>
+         　<td class="text-secondary">退会</td>
+         　<% else %>
+         　<td class="text-success">有効</td>
+         　<% end %>
          <% end %>
        </tbody>
     </table>
+    <%= paginate @customers %>
   </div>
 </div>
