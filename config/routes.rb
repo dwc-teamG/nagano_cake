@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :customers,skip: [:passwords], controllers: {
+  devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions"
   }
@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   get "public/homes/about"
 
   scope module: :public do
-    resource :customers, only: [:edit, :update] do
+    resource :customers, only: [] do
       get "my_page" => "customers#show"
+      get "my_page/edit" => "customers#edit"
+      patch "my_page/update" => "customers#update"
       get "unsubscribe" => "customers#unsubscribe"
       patch "withdraw" => "customers#withdraw"
     end
