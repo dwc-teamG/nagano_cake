@@ -1,34 +1,43 @@
-<h3>商品一覧</h3>
-<table>
-  <thead>
-    <tr>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.id %></td>
-        <td>
-          <%= link_to admin_item_path(item) do %>
-            <%= item.name %>
-          <% end %>
-        </td>
-        <td><%= item.price.to_s(:delimited) %></td>
-        <td><%= item.genre.name %></td>
-        <td>
-          <% if item.sale_status == true %>
-            <b>販売中</b>
-          <% else %>
-            <b>販売停止中</b>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @items %>
+<div class="container my-4">
+
+  <div class="row mt-3">
+    <h4 class="bg-light">商品一覧</h4>
+  </div>
+  <div class="row mt-3">
+    <table class="table col-12">
+      <thead class="thead-light">
+        <tr>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= item.id %></td>
+            <td>
+              <%= link_to admin_item_path(item) do %>
+                <%= item.name %>
+              <% end %>
+            </td>
+            <td><%= item.price.to_s(:delimited) %></td>
+            <td><%= item.genre.name %></td>
+            <td>
+              <% if item.sale_status == true %>
+                <b>販売中</b>
+              <% else %>
+                <b>販売停止中</b>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= paginate @items %>
+
+</div>
