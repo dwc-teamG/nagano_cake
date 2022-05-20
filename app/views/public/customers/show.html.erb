@@ -1,12 +1,14 @@
-<h3>マイページ</h3>
-<table>
-  <tr>
-    <th>登録情報</th>
-    <td><%= link_to '編集する', my_page_edit_customers_path, class: "btn btn-success" %></td>
-  </tr>
-</table>
 <div class="container">
-  <div class="row">
+  <div class="mb-5">
+    <h3>マイページ</h3>
+  </div>
+  <table class="mb-3">
+    <tr>
+      <th>登録情報</th>
+      <td><%= link_to '編集する', my_page_edit_customers_path, class: "btn btn-success ml-5" %></td>
+    </tr>
+  </table>
+  <div class="ml-2 row">
     <table class="table border border-1">
       <tbody>
         <tr>
@@ -34,14 +36,14 @@
       </tbody>
     </table>
   </div>
+  <table class="mb-3">
+    <tr>
+      <th>配送先</th>
+      <td class="col-7"><%= link_to '一覧を見る', addresses_path, class: "btn btn-block btn-primary" %></td>
+    </tr>
+    <tr>
+      <th>注文履歴</th>
+      <td class="col-7"><%= link_to '一覧を見る', orders_path, class: "btn btn-block btn-primary" %></td>
+    </tr>
+  </table>
 </div>
-<table>
-  <tr>
-    <th>配送先</th>
-    <td><%= link_to '一覧を見る', addresses_path, class: "btn btn-primary" %></td>
-  </tr>
-  <tr>
-    <th>注文履歴</th>
-    <td><%= link_to '一覧を見る', orders_path, class: "btn btn-primary" %></td>
-  </tr>
-</table>

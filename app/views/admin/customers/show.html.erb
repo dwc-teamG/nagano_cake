@@ -1,51 +1,53 @@
-<div>
-  <h3><%= @customer.last_name+@customer.first_name %>さんの会員詳細</h3>
-</div>
+<div class="container">
+  <div class="my-5 bg-light">
+    <h3><%= @customer.last_name+@customer.first_name %>さんの会員詳細</h3>
+  </div>
 
-<div class="row mx-5">
-  <table class="table mx-5 table-borderless col-6">
-    <tbody>
-      <tr>
-        <td>会員ID</td>
-        <td><%= @customer.id %></td>
-      </tr>
-      <tr>
-        <td>氏名</td>
-        <td><%= @customer.last_name + "　" + @customer.first_name %></td>
-      </tr>
-      <tr>
-        <td>フリガナ</td>
-        <td><%= @customer.last_name_kana + "　" + @customer.first_name_kana %></td>
-      </tr>
-      <tr>
-        <td>郵便番号</td>
-        <td><%= @customer.post_number %></td>
-      </tr>
-      <tr>
-        <td>住所</td>
-        <td><%= @customer.address %></td>
-      </tr>
-      <tr>
-        <td>電話番号</td>
-        <td><%= @customer.phone_number %></td>
-      </tr>
-      <tr>
-        <td>メールアドレス</td>
-        <td><%= @customer.email %></td>
-      </tr>
-      <tr>
-        <td>会員ステータス</td>
-        <td>
-          <% if @customer.deleted_flag == false %>
-            <b class="text-success">有効</b>
-          <% else %>
-            <b class="text-muted">退会</b>
-          <% end %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div>
-  <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success" %>
+  <div class="row mx-5">
+    <table class="table mx-5">
+      <tbody>
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td><%= @customer.last_name + "　" + @customer.first_name %></td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td><%= @customer.last_name_kana + "　" + @customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td><%= @customer.post_number %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @customer.phone_number %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <td>会員ステータス</td>
+          <td>
+            <% if @customer.deleted_flag == true %>
+              <b class="text-muted">退会</b>
+            <% else %>
+              <b class="text-success">有効</b>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success my-3" %>
+  </div>
 </div>

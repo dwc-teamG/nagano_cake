@@ -1,12 +1,12 @@
-<div>
-  <h3>会員情報編集</h3>
-</div>
-
 <div class="container">
+  <div class="mb-5">
+    <h3>会員情報編集</h3>
+  </div>
+
   <div class="row">
     <%= form_with model: @customer, url: my_page_update_customers_path, method: :patch do |f| %>
       <div class="form-group row">
-        <%= f.label "氏名", class: "col-3 " %>
+        <%= f.label "氏名", class: "col-3" %>
         <%= f.text_field :last_name, class: "form-control col-3 mr-3" %>
         <%= f.text_field :first_name, class: "form-control col-3" %>
       </div>
@@ -37,8 +37,9 @@
         <%= f.text_field :email, autofocus: true, class: "form-control col-8" %>
       </div>
 
-      <div>
+      <div class="mb-5">
         <%= f.submit "編集内容を保存", class: "btn btn-success" %>
+        <%= link_to '退会する', unsubscribe_customers_path, class: "btn btn-danger" %>
       </div>
     <% end %>
   </div>
