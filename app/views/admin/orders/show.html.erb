@@ -18,9 +18,8 @@
     <tr>
       <th>配送先</th>
       <td>
-        〒<%= order.post_number %>
-          <%= order.address %>
-          <%= order.name %>
+        〒<%= order.post_number %><%= order.address %><br>
+          <%= order.name %><br>
       </td>
     </tr>
 
@@ -84,4 +83,4 @@
     <th>請求金額合計</th>
     <td><%= (@total+@order.charge).to_s(:delimited) %>円</td>
   </tr>
-</table
+</table>
