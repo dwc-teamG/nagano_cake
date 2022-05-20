@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      <%= render "genre_search", genres: @genres %>
+    </div>
+    <div class="col-5">
+      <%= image_tag @item.get_item_image(400,400) %>
+    </div>
+    <div class="col-5">
+      <table>
+        <tbody>
+          <tr>
+            <td><%= @item.name %></td>
+          </tr>
+          <tr>
+            <td><%= @item.introduction %></td>
+          </tr>
+          <tr>
+            <td><strong>¥ <%= @item.add_tax_price.to_s(:delimited) %></strong>（税込）</td>
+          </tr>
+          <tr>
+            <%= form_with model: @cart_item, url:cart_items_path, method: :post do |f| %>
+              <%= f.hidden_field :item_id, :value => @item.id %>
+              <%= f.select :amount, *[1..10], {prompt: "個数選択"} %>
+              <%= f.submit 'カートに入れる', class: 'btn btn-success' %>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
