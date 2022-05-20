@@ -35,9 +35,9 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @cart_items = current_customer.cart_items.all
-    @total_price = @cart_items.sum{|cart_item|cart_item.item.price * cart_item.amount * 1.1}
+    @total = @cart_items.sum{|cart_item|cart_item.item.price * cart_item.amount * 1.1}
     @order.charge = 800
-    @order.total_payment = @total_price + @order.charge
+    @order.total_payment = @total + @order.charge
 
     if  params[:order][:select_address] == "0"
       @order.post_number = current_customer.post_number

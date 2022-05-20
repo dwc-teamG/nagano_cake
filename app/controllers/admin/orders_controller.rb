@@ -8,8 +8,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_details = @order.order_details.all
     @order.charge = 800
-    @subtotal = @order_details.map{|order_detail|order_detail.price*order_detail.amount}
-    @total = @subtotal.sum
+    @total = @order_details.sum{|order_detail|order_detail.item.price * order_detail.amount * 1.1}
   end
 
   def update
