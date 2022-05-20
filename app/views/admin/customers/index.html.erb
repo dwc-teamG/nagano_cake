@@ -1,11 +1,11 @@
-<div class="container">
-  <div clas="row">
+<div class="container my-4">
+  <div clas="row mt-3">
     <h5>会員一覧</h5>
     <table class="table">
        <thead>
-         <tr class="table-secondary">
+         <tr class="thead-light">
            <th>会員ID</th>
-           <th>氏名</th>
+           <th><u>氏名</u></th>
            <th>メールアドレス</th>
            <th>ステータス</th>
          </tr>
@@ -15,9 +15,9 @@
          <tr>
            <td><%= customer.id %></td>
            <td>
-             <%= link_to admin_customer_path(customer.id) do %>
+             <u><%= link_to admin_customer_path(customer.id), class:"text-body" do %>
              <%= customer.last_name %><%= customer.first_name %>
-             <% end %>
+             <% end %></u>
            </td>
          　<td><%= customer.email %></td>
          　   <% if customer.deleted_flag == true %>
