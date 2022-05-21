@@ -36,8 +36,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get "homes/top"
-
     resources :customers, only: [:index, :show, :edit, :update]
 
     resources :items, exepect: [:destroy]
