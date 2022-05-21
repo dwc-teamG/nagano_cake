@@ -31,7 +31,7 @@
       <div class="my-3"></div>
 
       <%= f.radio_button :select_address,1 %>登録済住所から選択<br>
-      <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display), prompt: "住所を選択してくだい" %>
+      <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_was), prompt: "住所を選択してくだい" %>
 
        <div class="my-3"></div>
 
