@@ -16,7 +16,7 @@ class Public::CartItemsController < ApplicationController
     elsif @cart_item.save
           redirect_to cart_items_path
     else
-          render :index
+          redirect_to request.referer
     end
   end
 
