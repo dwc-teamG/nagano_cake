@@ -24,14 +24,14 @@
       </td>
 
       <td>
-        〒<%= order.post_number %><br>
+        〒<%= order.post_number %>
         <%= order.address %><br>
-        <%= orders.name %><br>
+        <%= order.name %><br>
       </td>
 
       <td>
-        <%= ordre.items.each do |item| %>
-        <%= item.name %><br>
+        <% order.order_details.each do |order_detail| %>
+         <%= order_detail.item.name %><br>
         <% end %>
       </td>
 
@@ -40,7 +40,7 @@
 
       <td>
         <div class="d-flex justify-content-center">
-          <%= link_to "表示する", order_path(order), class: "btn btn-primary btn-lg px-4 ml-5" %>
+          <%= link_to "表示する", order_path(order), class: "btn btn-primary btn-sm mt-3" %>
         </div>
       </td>
     </tr>
