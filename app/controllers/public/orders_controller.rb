@@ -5,7 +5,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders.all
+    @orders = current_customer.orders
   end
 
   def show
@@ -13,19 +13,20 @@ class Public::OrdersController < ApplicationController
   end
 
    def create
-    cart_items = current_customer.cart_items.all
+    cart_items = current_customer.cart_items
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.order_status = 0
 
-    @order.save
+    @order.save!
     cart_items.each do |cart_item|
       order_detail = OrderDetail.new
       order_detail.item_id = cart_item.item_id
       order_detail.order_id = @order.id
       order_detail.amount = cart_item.amount
       order_detail.price = cart_item.item.price
-      order_detail.save
+      # saveの後ろに!をつけることで保存出来ない場合エラー
+      order_detail.save!
     end
     current_customer.cart_items.all.destroy_all
     render "complete"
