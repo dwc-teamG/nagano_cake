@@ -8,7 +8,7 @@ class Item < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :introduction, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: true
 
   def get_item_image(width, height)
     unless item_image.attached?
