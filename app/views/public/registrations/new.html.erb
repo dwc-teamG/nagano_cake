@@ -8,37 +8,37 @@
 
     <div class="form-group ml-5">
       <%= f.label "名前", class: "col-1" %>
-        <%= f.label "(性)", class: "mr-3 offset-1" %>
+        <%= f.label "(姓)", class: "offset-1 mr-4" %>
         <%= f.text_field :last_name, autocomplete: "last_name", autofocus: true, placeholder: "令和", class: "col-3" %>
-        <%= f.label "(名)", class: "mr-3 offset-1" %>
+        <%= f.label "(名)", class: "offset-1" %>
         <%= f.text_field :first_name, autocomplete: "first_name",autofocus: true, placeholder: "道子", class: "col-3" %>
     </div>
 
     <div class="form-group ml-5">
       <%= f.label "名前", class: "col-1" %>
-        <%= f.label "(セイ)", class: "mr-3 offset-1" %>
+        <%= f.label "(セイ)", class: "offset-1" %>
         <%= f.text_field :last_name_kana, autocomplete: "last_name_kana", autofocus: true, placeholder: "レイワ", class: "col-3" %>
-        <%= f.label "(メイ)", class: "mr-3 offset-1" %>
+        <%= f.label "(メイ)", class: "offset-1" %>
         <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", autofocus: true, placeholder: "ミチコ", class: "col-3" %>
     </div>
 
     <div class="form-group ml-5">
-      <%= f.label "メールアドレス", class: "col-4 mr-3" %>
+      <%= f.label "メールアドレス", class: "col-4" %>
         <%= f.email_field :email, autocomplete: "email", autofocus: true, placeholder: "sample@example.com", class: "col-3" %>
     </div>
 
     <div class="form-group ml-5">
-      <%= f.label "郵便番号(ハイフンなし)", class: "col-4 mr-3" %>
+      <%= f.label "郵便番号(ハイフンなし)", class: "col-4" %>
         <%= f.text_field :post_number, autocomplete: "post_number", autofocus: true, placeholder: "0000000", class: "col-3" %>
     </div>
 
     <div class="form-group ml-5">
-      <%= f.label "住所", class: "col-1 mr-5" %>
+      <%= f.label "住所", class: "col-1" %>
         <%= f.text_field :address, autocomplete: "address", autofocus: true, placeholder: "東京都渋谷区代々木神園町0-0", class: "col-7" %>
     </div>
 
     <div class="form-group ml-5">
-      <%= f.label "電話番号(ハイフンなし)", class: "col-4 mr-3" %>
+      <%= f.label "電話番号(ハイフンなし)", class: "col-4" %>
         <%= f.text_field :phone_number, autocomplete: "post_number", autofocus: true, placeholder: "0000000000", class: "col-3" %>
     </div>
 
