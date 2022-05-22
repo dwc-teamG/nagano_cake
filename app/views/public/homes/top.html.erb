@@ -1,28 +1,15 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <div class="col-md-3">
-      <table class="table col-3">
-  <thead class="thead-light">
-    <tr>
-      <th>ジャンル検索</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <tr>
-      <td></td>
-    </tr>
-
-  </tbody>
-</table>
+    <div class="col-2">
+      <%= render "public/items/genre_search", genres: @genres %>
     </div>
-    <div class="col-md-8 offset-md-1">
-      <p>ようこそ、ながのCAKEへ！
-      <br>このサイトは、ケーキ販売のECサイトになります。
-      <br>会員ではない方も商品の閲覧はできますが、
-      <br>購入には会員登録が必要になります。</p>
-      新着商品
+    <div class="col-10 visual-content">
+      <div class="visual-text">
+        <p>ようこそ、ながのCAKEへ！
+        <br>このサイトは、ケーキ販売のECサイトになります。
+        <br>会員ではない方も商品の閲覧はできますが、
+        <br>購入には会員登録が必要になります。</p>
+      </div>
     </div>
   </div>
 </div>
