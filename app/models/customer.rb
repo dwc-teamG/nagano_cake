@@ -16,4 +16,9 @@ class Customer < ApplicationRecord
   validates :post_number, presence: true
   validates :address, presence: true
   validates :phone_number, presence: true
+
+  #正規ユーザーのみを認める記述
+  def active_for_authentication?
+   super && (deleted_flag == false)
+  end
 end
