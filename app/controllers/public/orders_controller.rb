@@ -28,6 +28,13 @@ class Public::OrdersController < ApplicationController
       # saveの後ろに!をつけることで保存出来ない場合エラー
       order_detail.save!
     end
+    @address = Address.new
+    @address.customer_id = current_customer.id
+    @address.post_number = params[:order][:post_number]
+    @address.address = params[:order][:address]
+    @address.name = params[:order][:name]
+    @address.save!
+    # flash[:notice] = "配送先が登録されました"
     current_customer.cart_items.all.destroy_all
     render "complete"
    end
@@ -40,7 +47,7 @@ class Public::OrdersController < ApplicationController
     @order.charge = 800
     @order.total_payment = @total_price + @order.charge
 
-      if  params[:order][:select_address] == "0"
+      if params[:order][:select_address] == "0"
         @order.post_number = current_customer.post_number
         @order.address = current_customer.address
         @order.name = current_customer.last_name + current_customer.first_name
@@ -59,7 +66,7 @@ class Public::OrdersController < ApplicationController
 
       elsif params[:order][:select_address] == "2"
 
-        if  params[:order][:post_number] == "" && params[:order][:address] == "" && params[:order][:name] == ""
+        if params[:order][:post_number] == "" && params[:order][:address] == "" && params[:order][:name] == ""
 
           flash[:notice] = "新しいお届け先が全て入力されていません"
           render "new"
