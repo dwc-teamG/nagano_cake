@@ -41,39 +41,45 @@ class Public::OrdersController < ApplicationController
     @order.total_payment = @total_price + @order.charge
 
       if  params[:order][:select_address] == "0"
-
         @order.post_number = current_customer.post_number
         @order.address = current_customer.address
         @order.name = current_customer.last_name + current_customer.first_name
 
-      elsif　params[:order][:select_address] == "1"
-
-        @address = Address.find(params[:order][:address_id])
-        @order.post_number = @address.post_number
-        @order.address = @address.address
-        @order.name = @address.name
+      elsif params[:order][:select_address] == "1"
+        #登録した配送先を選択しなかった場合
+        unless current_customer.addresses.exists?
+          flash[:notice] = "登録済の住所が選択されていません"
+          render "new"
+        else
+          @address = Address.find(params[:order][:address_id])
+          @order.post_number = @address.post_number
+          @order.address = @address.address
+          @order.name = @address.name
+        end
 
       elsif params[:order][:select_address] == "2"
 
         if  params[:order][:post_number] == "" && params[:order][:address] == "" && params[:order][:name] == ""
 
           flash[:notice] = "新しいお届け先が全て入力されていません"
-          redirect_to new_order_path
+          render "new"
         elsif params[:order][:post_number] == ""
           flash[:notice] = "郵便番号が入力されていません"
-          redirect_to new_order_path
+          render "new"
         elsif params[:order][:address] == ""
           flash[:notice] = "住所が入力されていません"
-          redirect_to new_order_path
+          render "new"
         elsif params[:order][:name] == ""
           flash[:notice] = "宛名が入力されていません"
-          redirect_to new_order_path
+          render "new"
         else
           @order.post_number = params[:order][:post_number]
           @order.address = params[:order][:address]
           @order.name = params[:order][:name]
         end
       else
+         flash.now[:notice] = "住所を選択してください"
+         render "new"
       end
   end
 
