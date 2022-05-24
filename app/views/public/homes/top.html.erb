@@ -1,15 +1,36 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
+
     <div class="col-2">
       <%= render "public/items/genre_search", genres: @genres %>
     </div>
-    <div class="col-10 visual-content">
-      <div class="visual-text">
-        <p>ようこそ、ながのCAKEへ！
+
+    <div class="col-8 visual-content text-center">
+      <div class="jumbotron">
+        <p class="top-index">ようこそ、ながのCAKEへ！
         <br>このサイトは、ケーキ販売のECサイトになります。
         <br>会員ではない方も商品の閲覧はできますが、
         <br>購入には会員登録が必要になります。</p>
       </div>
+
+      <div class="row">
+      <h4 class="bg-light mb-4">新着商品</h4>
+      </div>
+      <div class="item_index d-flex flex-nowrap">
+        <% @items.each do |item| %>
+          <div class="item_box mr-3">
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.get_item_image(200,100) %>
+            <% end %>
+            <br><label>商品名：<%= item.name %></label>
+            <br><label>¥<%= item.add_tax_price.to_s(:delimited) %></label>
+          </div>
+        <% end %>
+      </div>
+      <div class="text-right">
+        <u><%= link_to "全ての商品を見る >", items_path %></u>
+      </div>
     </div>
+
   </div>
 </div>
