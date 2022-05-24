@@ -1,7 +1,7 @@
 <div class="container">
   <div class="mb-5">
-    <h3 class="bg-light">ログイン</h3>
-    <p class="bg-light">会員の方はこちらからログイン</p>
+    <h3 class="bg-light col-3 text-center">ログイン</h3>
+    <p class="bg-light col-3 text-center">会員の方はこちらからログイン</p>
   </div>
     <div class="row">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -21,7 +21,7 @@
     </div>
     <div class="row">
       <p>
-        会員登録がお済みでない方<%= render "public/shared/links" %>から新規登録を行ってください。
+        会員登録がお済みでない方<strong><%= render "public/shared/links" %></strong>から新規登録を行ってください。
       </p>
     </div>
   </div>
