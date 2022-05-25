@@ -1,6 +1,6 @@
 <div class="container my-4">
   <div class="row mt-5">
-    <h4 class="bg-light">商品詳細</h4>
+    <h4  style="background-color: #FFE4E1">商品詳細</h4>
   </div>
   <div class="row mt-5">
     <div class="col-6" >
@@ -9,17 +9,17 @@
     <div class="col-6" >
       <table class="table table-bordered">
         <tr>
-          <th class="table-info">商品名</th>
+          <th style="background-color: #FFE4E1">商品名</th>
           <td><%= @item.name %></td>
         </tr>
         <tr>
-          <th class="table-info">商品説明</th>
+          <th style="background-color: #FFE4E1">商品説明</th>
           <td><%= @item.introduction %></td>
         </tr>
-          <th class="table-info">ジャンル</th>
+          <th style="background-color: #FFE4E1">ジャンル</th>
           <td><%= @item.genre.name %></td>
         <tr>
-          <th class="table-info">税込価格（税抜価格）</th>
+          <th style="background-color: #FFE4E1">税込価格（税抜価格）</th>
           <td><%= @item.add_tax_price.to_s(:delimited) %>（<%= @item.price.to_s(:delimited) %>） 円</td>
         </tr>
       </table>
