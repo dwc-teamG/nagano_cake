@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'cart_items/index'
-  end
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions"
