@@ -10,13 +10,17 @@
       <table>
         <tbody>
           <tr>
-            <td><%= @item.name %></td>
+            <td class="pb-3">
+              <strong>商品名：</strong><%= @item.name %>
+              </td>
           </tr>
           <tr>
-            <td><%= @item.introduction %></td>
+            <td class="pb-3">
+              <strong>紹介文：</strong><%= @item.introduction %>
+              </td>
           </tr>
           <tr>
-            <td><strong>¥ <%= @item.add_tax_price.to_s(:delimited) %></strong>（税込）</td>
+            <td class="pb-3"><strong>¥ <%= @item.add_tax_price.to_s(:delimited) %></strong>（税込）</td>
           </tr>
         </tbody>
       </table>

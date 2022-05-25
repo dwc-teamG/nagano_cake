@@ -1,7 +1,7 @@
 <div class="container my-4">
   <div class="row mt-3">
     <div class="col-10">
-      <h4 class="bg-light col-4 text-center">ショッピングカート</h5>
+      <h4 class="col-4 text-center", style="background-color: #FFE4E1">ショッピングカート</h5>
     </div>
     <div class="col-2">
       <%= link_to 'カートを空にする', cart_item_destroy_all_path(@cart_items), method: :delete, class: "btn btn-danger", data: { confirm: "カートの中身を全て削除しますか？" } %>
@@ -9,7 +9,7 @@
   </div>
   <div class="row mt-3">
     <table class="table table-bordered">
-      <thead class="table-info">
+      <thead style="background-color: #FFE4E1">
         <th style="width: 45%">商品名</th>
         <th style="width: 10%">単価(税込)</th>
         <th style="width: 20%">数量</th>
@@ -43,7 +43,7 @@
     </div>
     <div class="col-3">
       <table class="table table-bordered">
-        <th class="table-info">合計金額</th>
+        <th style="background-color: #FFE4E1">合計金額</th>
         <td><%= @total_price.to_s(:delimited) %></td>
       </table>
     </div>
