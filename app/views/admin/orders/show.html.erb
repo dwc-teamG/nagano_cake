@@ -5,30 +5,30 @@
 </div>
 <div class="row">
  <div class="col-4 offset-1">
-  <table class="table table-borderless">
+  <table class="mt-3 mb-5 table table-bordered">
     <tbody>
       <tr>
-        <th>購入者</th>
-        <td><%= @order.name %></td>
+        <th style="background-color: #FFE4E1">購入者</th>
+        <td bgcolor="#fff"><%= @order.name %></td>
       </tr>
       <tr>
-        <th>注文日</th>
-        <td><%= @order.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+        <th style="background-color: #FFE4E1">注文日</th>
+        <td bgcolor="#fff"><%= @order.created_at.strftime('%Y/%m/%d %H:%M') %></td>
       </tr>
       <tr>
-        <th>配送先</th>
-        <td>
+        <th style="background-color: #FFE4E1">配送先</th>
+        <td bgcolor="#fff">
           〒<%= @order.post_number %>  <%= @order.address %><br>
             <%= @order.name %><br>
         </td>
       </tr>
       <tr>
-        <th>支払方法</th>
-        <td><%= @order.payment_method_i18n %></td>
+        <th style="background-color: #FFE4E1">支払方法</th>
+        <td bgcolor="#fff"><%= @order.payment_method_i18n %></td>
       </tr>
       <tr>
-        <th>注文ステータス</th>
-        <td>
+        <th style="background-color: #FFE4E1">注文ステータス</th>
+        <td bgcolor="#fff">
           <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
           <%= f.select :order_status, Order.order_statuses_i18n.invert %>
           <%= f.submit "更新", class: "btn btn-success btn-sm px-4 ml-5" %>
@@ -45,14 +45,14 @@
   <table class="table table-bordered">
     <thead style="background-color: #FFE4E1">
       <tr>
-         <th style="width: 25%">商品名</th>
+        <th style="width: 25%">商品名</th>
         <th style="width: 25%">単価（税込）</th>
-         <th style="width: 10%">数量</th>
-         <th style="width: 10%">小計</th>
+        <th style="width: 10%">数量</th>
+        <th style="width: 10%">小計</th>
         <th style="width: 30%">製作ステータス</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody bgcolor="#fff">
       <% @order_details.each do |order_detail| %>
       <tr>
         <td><%= order_detail.item.name %></td>
@@ -71,18 +71,18 @@
   </table>
  </div>
  <div class="col-2 d-flex align-items-end ml-3">
-  <table class="table table-borderless">
+  <table class="table table-bordered">
     <tr>
-      <th>商品合計</th>
-      <td><%= (@order.total_payment - @order.charge).to_s(:delimited) %>円</td>
+      <th style="background-color: #FFE4E1">商品合計</th>
+      <td bgcolor="#fff"><%= (@order.total_payment - @order.charge).to_s(:delimited) %>円</td>
     </tr>
     <tr>
-      <th>送料</th>
-      <td><%= @order.charge.to_s(:delimited) %>円</td>
+      <th style="background-color: #FFE4E1">送料</th>
+      <td bgcolor="#fff"><%= @order.charge.to_s(:delimited) %>円</td>
     </tr>
     <tr>
-      <th>請求金額合計</th>
-      <td><%= @order.total_payment.to_s(:delimited) %>円</td>
+      <th style="background-color: #FFE4E1">請求金額合計</th>
+      <td bgcolor="#fff"><%= @order.total_payment.to_s(:delimited) %>円</td>
     </tr>
   </table>
  </div>
