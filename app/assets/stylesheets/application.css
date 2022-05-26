@@ -30,6 +30,6 @@ main {
   background-image: url("images/coffee.jpg");
   background-color: rgba(255,255,255,0.5);
   background-blend-mode: lighten;
-  height: 800px;
+  height: 100%;
   background-size: cover;
 }

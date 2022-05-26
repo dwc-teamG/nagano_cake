@@ -18,6 +18,8 @@ class Item < ApplicationRecord
     item_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  scope :latest, -> {order(created_at: :desc)}
+
   #消費税計算用のメソッド
   def add_tax_price
     (self.price * 1.10).round
