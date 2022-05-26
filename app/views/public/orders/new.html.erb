@@ -28,13 +28,13 @@
     <p class="ml-3">〒<%= current_customer.post_number %><%= current_customer.address %><br>
                   <%= current_customer.last_name %><%= current_customer.first_name %></p>
 
-    <div class="my-4"></div>
+    <div class="my-1"></div>
 
     <%= f.radio_button :select_address,1 %>
     <b><%= f.label :登録済みの住所から選択 %></b><br>
     <div class="ml-3"><%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_was) %></div>
 
-    <div class="my-4"></div>
+    <div class="my-1"></div>
 
     <%= f.radio_button :select_address,2 %>
     <b><%= f.label :新しいお届け先 %></b>
