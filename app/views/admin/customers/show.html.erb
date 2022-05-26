@@ -7,36 +7,36 @@
     <table class="table mx-5">
       <tbody>
         <tr>
-          <td>会員ID</td>
-          <td><%= @customer.id %></td>
+          <td style="background-color: #FFE4E1">会員ID</td>
+          <td bgcolor="#fff"><%= @customer.id %></td>
         </tr>
         <tr>
-          <td>氏名</td>
-          <td><%= @customer.last_name + "　" + @customer.first_name %></td>
+          <td style="background-color: #FFE4E1">氏名</td>
+          <td bgcolor="#fff"><%= @customer.last_name + "　" + @customer.first_name %></td>
         </tr>
         <tr>
-          <td>フリガナ</td>
-          <td><%= @customer.last_name_kana + "　" + @customer.first_name_kana %></td>
+          <td style="background-color: #FFE4E1">フリガナ</td>
+          <td bgcolor="#fff"><%= @customer.last_name_kana + "　" + @customer.first_name_kana %></td>
         </tr>
         <tr>
-          <td>郵便番号</td>
-          <td><%= @customer.post_number %></td>
+          <td style="background-color: #FFE4E1">郵便番号</td>
+          <td bgcolor="#fff"><%= @customer.post_number %></td>
         </tr>
         <tr>
-          <td>住所</td>
-          <td><%= @customer.address %></td>
+          <td style="background-color: #FFE4E1">住所</td>
+          <td bgcolor="#fff"><%= @customer.address %></td>
         </tr>
         <tr>
-          <td>電話番号</td>
-          <td><%= @customer.phone_number %></td>
+          <td style="background-color: #FFE4E1">電話番号</td>
+          <td bgcolor="#fff"><%= @customer.phone_number %></td>
         </tr>
         <tr>
-          <td>メールアドレス</td>
-          <td><%= @customer.email %></td>
+          <td style="background-color: #FFE4E1">メールアドレス</td>
+          <td bgcolor="#fff"><%= @customer.email %></td>
         </tr>
         <tr>
-          <td>会員ステータス</td>
-          <td>
+          <td style="background-color: #FFE4E1">会員ステータス</td>
+          <td bgcolor="#fff">
             <% if @customer.deleted_flag == true %>
               <b class="text-muted">退会</b>
             <% else %>
