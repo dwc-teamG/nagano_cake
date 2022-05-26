@@ -14,13 +14,13 @@
       <tbody>
         <% @cart_items.each do |cart_item| %>
           <tr>
-            <td>
+            <td bgcolor="#fff">
               <%= image_tag cart_item.item.get_item_image(50, 50) %>
               <%= cart_item.item.name %>
             </td>
-            <td><%=(cart_item.item.price).to_s(:delimited)%></td>
-            <td><%= cart_item.amount %></td>
-            <td><%=(cart_item.item.price*cart_item.amount).to_s(:delimited)%></td>
+            <td bgcolor="#fff"><%=(cart_item.item.price).to_s(:delimited)%></td>
+            <td bgcolor="#fff"><%= cart_item.amount %></td>
+            <td bgcolor="#fff"><%=(cart_item.item.price*cart_item.amount).to_s(:delimited)%></td>
           </tr>
         <% end %>
       </tbody>
@@ -29,18 +29,18 @@
   <div class="row">
     <div class="col-3">
       <table class="table mx-5 table-bordered table-background">
-        <tbody>
+        <tbody bgcolor="#fff">
           <tr>
             <td style="background-color: #FFE4E1"><strong>送料</strong></td>
-            <td><%= @order.charge %></td>
+            <td bgcolor="#fff"><%= @order.charge %></td>
           </tr>
           <tr>
             <td style="background-color: #FFE4E1"><strong>商品合計</strong></td>
-            <td><%= @total_price.to_s(:delimited) %></td>
+            <td bgcolor="#fff"><%= @total_price.to_s(:delimited) %></td>
           </tr>
           <tr>
             <td style="background-color: #FFE4E1"><strong>請求金額</strong></td>
-            <td><%= (@total_price+@order.charge).to_s(:delimited) %></td>
+            <td bgcolor="#fff"><%= (@total_price+@order.charge).to_s(:delimited) %></td>
           </tr>
         </tbody>
       </table>
