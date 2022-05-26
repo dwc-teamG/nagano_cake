@@ -22,7 +22,7 @@
             <%= link_to item_path(item) do %>
               <%= image_tag item.get_item_image(200,100) %>
             <% end %>
-            <br><label class="badge"><%= item.name %></label>
+            <br><label class="badge">商品名：<%= item.name %></label>
             <br><label class="badge">¥<%= item.add_tax_price.to_s(:delimited) %></label>
           </div>
         <% end %>

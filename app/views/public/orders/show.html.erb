@@ -9,7 +9,7 @@
    <div class="col mb-3">
     <strong>注文情報</strong>
     <table class="table table-bordered">
-     <tbody>
+     <tbody bgcolor="#fff">
       <tr>
         <td style="background-color: #FFE4E1">注文日</td>
         <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
@@ -39,15 +39,15 @@
     <table class="table table-bordered">
       <tr>
         <td style="background-color: #FFE4E1">商品合計</td>
-        <td><%= (@order.total_payment - @order.charge).to_s(:delimited) %>円</td>
+        <td bgcolor="#fff"><%= (@order.total_payment - @order.charge).to_s(:delimited) %>円</td>
       </tr>
       <tr>
         <td style="background-color: #FFE4E1">配送料</td>
-        <td><%= @order.charge %>円</td>
+        <td bgcolor="#fff"><%= @order.charge %>円</td>
       </tr>
       <tr>
         <td style="background-color: #FFE4E1">ご請求額</td>
-       <td><%= @order.total_payment.to_s(:delimited) %>円</td>
+       <td bgcolor="#fff"><%= @order.total_payment.to_s(:delimited) %>円</td>
       </tr>
     </table>
   </div>
@@ -68,10 +68,10 @@
       <tbody>
         <% @order.order_details.each do |order_detail| %>
           <tr class="table-background">
-            <td><%= order_detail.item.name %></td>
-            <td><%=(order_detail.item.price*1.1).round.to_s(:delimited)%>円</td>
-            <td><%= order_detail.amount %>個</td>
-            <td><%=((order_detail.item.price*1.1)*(order_detail.amount)).round.to_s(:delimited)%>円</td>
+            <td bgcolor="#fff"><%= order_detail.item.name %></td>
+            <td bgcolor="#fff"><%=(order_detail.item.price*1.1).round.to_s(:delimited)%>円</td>
+            <td bgcolor="#fff"><%= order_detail.amount %>個</td>
+            <td bgcolor="#fff"><%=((order_detail.item.price*1.1)*(order_detail.amount)).round.to_s(:delimited)%>円</td>
           </tr>
         <% end %>
       </tbody>
