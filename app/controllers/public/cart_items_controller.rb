@@ -14,9 +14,9 @@ class Public::CartItemsController < ApplicationController
       cart_item.save
       redirect_to cart_items_path
     elsif @cart_item.save
-          redirect_to cart_items_path
+      redirect_to cart_items_path
     else
-          redirect_to request.referer
+      redirect_to request.referer
     end
   end
 
