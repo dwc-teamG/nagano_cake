@@ -29,6 +29,13 @@ class Public::OrdersController < ApplicationController
       # saveの後ろに!をつけることで保存出来ない場合エラー
       order_detail.save!
     end
+    @address = Address.new
+    @address.customer_id = current_customer.id
+    @address.post_number = params[:order][:post_number]
+    @address.address = params[:order][:address]
+    @address.name = params[:order][:name]
+    @address.save!
+    # flash[:notice] = "配送先が登録されました"
     current_customer.cart_items.all.destroy_all
     render "complete"
    end
