@@ -1,0 +1,80 @@
+<div class="container">
+  <h4 class="ml-4 mb-5 col-2 text-center", style="background-color: #FFE4E1">注文情報確認</h4>
+  <div class="row">
+  <% if current_customer.cart_items.present? %>
+    <table class="table table-bordered table-background ml-5 mb-5">
+      <thead style="background-color: #FFE4E1">
+        <tr>
+          <th style="width: 70%">商品名</th>
+          <th style="width: 10%">単価(税込)</th>
+          <th style="width: 10%">数量</th>
+          <th style="width: 10%">小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cart_items.each do |cart_item| %>
+          <tr>
+            <td bgcolor="#fff">
+              <%= image_tag cart_item.item.get_item_image(50, 50) %>
+              <%= cart_item.item.name %>
+            </td>
+            <td bgcolor="#fff"><%=(cart_item.item.price).to_s(:delimited)%></td>
+            <td bgcolor="#fff"><%= cart_item.amount %></td>
+            <td bgcolor="#fff"><%=(cart_item.item.price*cart_item.amount).to_s(:delimited)%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <table class="table mx-5 table-bordered table-background">
+        <tbody bgcolor="#fff">
+          <tr>
+            <td style="background-color: #FFE4E1"><strong>送料</strong></td>
+            <td bgcolor="#fff"><%= @order.charge %></td>
+          </tr>
+          <tr>
+            <td style="background-color: #FFE4E1"><strong>商品合計</strong></td>
+            <td bgcolor="#fff"><%= @total_price.to_s(:delimited) %></td>
+          </tr>
+          <tr>
+            <td style="background-color: #FFE4E1"><strong>請求金額</strong></td>
+            <td bgcolor="#fff"><%= (@total_price+@order.charge).to_s(:delimited) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="offset-1">
+    <div class="pl-4 pt-5 d-flex">
+      <h5 class="mr-3"><b>支払方法</b></h5><span><%= @order.payment_method_i18n %></span>
+    </div>
+    <div class="pl-4 my-3 d-flex">
+      <h5 class="mr-3"><b>お届け先</b></h5>
+      <span>
+        <%= "〒" + @order.post_number %><br>
+        <%= @order.address %><br>
+        <%= @order.name %>
+      </span>
+    </div>
+  </div>
+
+    <%= form_with model: @order, url:{controller: "orders",action: "create"} do |f| %>
+      <%= f.hidden_field :post_number %>
+      <%= f.hidden_field :address %>
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :payment_method %>
+      <%= f.hidden_field :customer_id %>
+      <%= f.hidden_field :charge %>
+      <%= f.hidden_field :total_payment %>
+      <%= f.hidden_field :order_status %>
+
+      <%= f.submit "注文を確定する", class:"btn btn-success btn-lg px-4 offset-5 mb-5" %>
+    <% end %>
+  <% else %>
+    <p>※お客様のショッピングカートに商品はありませんので注文確定ができませんでした。</p>
+    <p><%= link_to "商品一覧", items_path %>から商品をお探し下さい。</p>
+  <% end %>
+</div>

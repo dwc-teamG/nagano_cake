@@ -1,0 +1,40 @@
+<div class="container my-4">
+  <div class="row mt-5">
+    <h4  style="background-color: #FFE4E1">商品詳細</h4>
+  </div>
+  <div class="row mt-5">
+    <div class="col-6" >
+      <%= image_tag @item.get_item_image(400,400) %>
+    </div>
+    <div class="col-6" >
+      <table class="table table-bordered">
+        <tbody bgcolor="#fff">
+          <tr>
+            <th style="background-color: #FFE4E1">商品名</th>
+            <td><%= @item.name %></td>
+          </tr>
+          <tr>
+            <th style="background-color: #FFE4E1">商品説明</th>
+            <td><%= @item.introduction %></td>
+          </tr>
+            <th style="background-color: #FFE4E1">ジャンル</th>
+            <td><%= @item.genre.name %></td>
+          <tr>
+            <th style="background-color: #FFE4E1">税込価格（税抜価格）</th>
+            <td><%= @item.add_tax_price.to_s(:delimited) %>（<%= @item.price.to_s(:delimited) %>） 円</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-group mt-3">
+        <% if @item.sale_status == true %>
+          <b class="text-success">販売中</b>
+        <% else %>
+          <b class="text-danger">販売停止中</b>
+        <% end %>
+      </div>
+      <div class="form-group mt-3">
+        <%= button_to '編集する', {controller: 'items', action: 'edit'}, {method: :get, class: 'btn btn-success'} %>
+      </div>
+    </div>
+  </div>
+</div>

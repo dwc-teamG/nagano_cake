@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="mb-5">
+    <h3 class="text-center col-2", style="background-color: #FFE4E1">マイページ</h3>
+  </div>
+  <table class="mb-3">
+    <tr>
+      <th>登録情報</th>
+      <td><%= link_to '編集する', my_page_edit_customers_path, class: "btn btn-success ml-5" %></td>
+    </tr>
+  </table>
+  <div class="ml-2 row">
+    <table class="table border border-1">
+      <tbody style="background-color: white">
+        <tr>
+          <th class="col-3", style="background-color: #FFE4E1">氏名</th>
+          <td class="col-8"><%= current_customer.last_name %>　<%= current_customer.first_name %></td>
+        </tr>
+        <tr>
+          <th class="col-3", style="background-color: #FFE4E1">カナ</th>
+          <td class="col-8"><%= current_customer.last_name_kana %>　<%= current_customer.first_name_kana %></td>
+        <tr>
+          <th class="col-3", style="background-color: #FFE4E1">郵便番号</th>
+          <td class="col-8"><%= current_customer.post_number %></td>
+        </tr>
+        <tr>
+          <th class="col-3", style="background-color: #FFE4E1">住所</th>
+          <td class="col-8"><%= current_customer.address %></td>
+        </tr>
+        <tr>
+          <th class="col-3", style="background-color: #FFE4E1">電話番号</th>
+          <td class="col-8"><%= current_customer.phone_number %></td>
+        </tr>
+          <th class="col-3", style="background-color: #FFE4E1">メールアドレス</th>
+          <td class="col-8"><%= current_customer.email %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <table class="mb-3">
+    <tr>
+      <th>配送先</th>
+      <td class="col-7"><%= link_to '一覧を見る', addresses_path, class: "btn btn-block btn-primary" %></td>
+    </tr>
+    <tr>
+      <th>注文履歴</th>
+      <td class="col-7"><%= link_to '一覧を見る', orders_path, class: "btn btn-block btn-primary" %></td>
+    </tr>
+  </table>
+</div>

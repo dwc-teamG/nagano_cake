@@ -1,0 +1,14 @@
+<table class="table table-bordered table-hover">
+  <thead style="background-color: #FFE4E1">
+    <tr>
+      <td>ジャンル一覧</td>
+    </tr>
+  </thead>
+  <tbody bgcolor="#fff">
+    <% genres.each do |genre| %>
+      <tr>
+        <td><%= genre.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
